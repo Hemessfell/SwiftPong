@@ -11,6 +11,7 @@ public class Bar : MonoBehaviour
     public bool isShooting;
 
     [SerializeField] private float minThreshold, maxThreshold;
+    float realPosition;
 
     [HideInInspector] public SpriteRenderer spr;
     private Camera myCamera;
@@ -52,14 +53,15 @@ public class Bar : MonoBehaviour
     {
         dragStartPos = Camera.main.ScreenToWorldPoint(touch.position);
         dragStartPos.z = 0f;
-        transform.position = new Vector3(Mathf.Clamp(dragStartPos.x, minThreshold, maxThreshold), transform.position.y);
+        realPosition = transform.position.x;
+        //transform.position = new Vector3(Mathf.Clamp(dragStartPos.x, minThreshold, maxThreshold), transform.position.y);
     }
 
    private void Dragging()
     {
-        Vector3 draggingPos = Camera.main.ScreenToWorldPoint(touch.position);
-        draggingPos.z = 0f;
-        transform.position = new Vector3(Mathf.Clamp(draggingPos.x, minThreshold, maxThreshold), transform.position.y);
+        float draggingPos = Camera.main.ScreenToWorldPoint(touch.position).x;
+        float draggingResult = dragStartPos.x - draggingPos;
+        transform.position = new Vector3((realPosition - draggingResult),transform.position.y);
     }
     /*
     private void DragRelease()
