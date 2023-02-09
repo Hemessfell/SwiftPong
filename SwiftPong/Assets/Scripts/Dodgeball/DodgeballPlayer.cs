@@ -6,6 +6,7 @@ public class DodgeballPlayer : MonoBehaviour
 {
     Touch touch;
     Vector3 dragStartPos, realPosition;
+    [SerializeField] GameObject playerGore;
     void Start()
     {
         
@@ -45,5 +46,11 @@ public class DodgeballPlayer : MonoBehaviour
         float draggingResultX = dragStartPos.x - draggingPos.x;
         float draggingResultY = dragStartPos.y - draggingPos.y ;
         transform.position = new Vector3((realPosition.x - draggingResultX), (realPosition.y - draggingResultY));
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Ball"))
+            Instantiate(playerGore, transform.position, playerGore.transform.rotation);
+            
     }
 }

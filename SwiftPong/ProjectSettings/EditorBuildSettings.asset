@@ -6,13 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Swiftball/MainMenu.unity
     guid: 2740a28f9ddf476418e0187e5460dacb
   - enabled: 1
-    path: Assets/Scenes/LevelSelector.unity
+    path: Assets/Scenes/Swiftball/LevelSelector.unity
     guid: 14fc97ae4b445bc44a198b6ea6ad0bbd
   - enabled: 1
-    path: Assets/Scenes/Levels/Level-1.unity
+    path: Assets/Scenes/Swiftball/Levels/Level-1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Dodgeball/Dodgeball.unity
+    guid: 03cbf0ada0727394f94dc681b481ae5f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 09f8f40ed22538c4ea6d55998da5466f, type: 2}
